@@ -4,6 +4,8 @@ if (!$settings = parse_ini_file("../config/config.ini", TRUE)) throw new excepti
 define('PATH', $settings['app']['path']);
 // Include the custom exception class
 require PATH."htdocs/include/exception.php";
+// Custom Functions (Misc)
+require PATH."htdocs/include/functions.php";
 // Include Smarty
 require PATH."htdocs/include/Smarty/Smarty.class.php";
 // Smarty Configuration

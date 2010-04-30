@@ -1,0 +1,16 @@
+This is a not fully functional ecommerce system, specifcally for the sale of services rather than things.
+The example used throughout the project is webhosting or something of the like.
+
+This isn’t even anywhere close to an alpha release.
+
+To function, it will need smarty installed and paths configured in htdocs/ecommerce/index.php.
+Database details are configured near the bottom of smarty/ecom/libs/config.php.
+
+Pages are made by first creating a “Controller”. They can be modelled after the HomeController, but should
+be fine as long as you’re extending MainController. Inheritance can be used in this way, for example,
+PlanController extends MainController. ServicesController extends MainController.
+
+I’ve spent a considerable time on the databaes design too, in the hope that it’s going to make further
+development easier.
+
+Update — Set your document root to www/htdocs and make sure that www/write and www/htdocs/assets are writeable!
