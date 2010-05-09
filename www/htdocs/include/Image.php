@@ -23,10 +23,11 @@ class Image extends File {
 		$this->ratio = ($this->width / $this->height);
 		$this->bits = $size["bits"];
 		$this->mime = $size["mime"];
-		$this->channels = $size["channels"];
 	}
 	
 	function getPath($height, $width, $web = true) {
+		echo $height;
+		echo $width;
 		if (!is_numeric($height))
 			$height = 0;
 		if (!is_numeric($width))

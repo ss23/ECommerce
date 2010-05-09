@@ -1,8 +1,12 @@
 <?
 // Get the PATH define value
-if (!$settings = parse_ini_file("../config/config.ini", TRUE)) throw new exception('Unable to open configuration file.');
-define('PATH', $settings['app']['path']);
-// Include the custom exception class
+if (!$GLOBALS['config'] = parse_ini_file("../config/config.ini", TRUE)) {
+	throw new ECommerceException('Unable to open configuration file');
+}
+define('PATH', $GLOBALS['config']['app']['path']);
+// Include the files to detect if we're in debug mode
+require PATH."htdocs/include/debug.php";
+// Include the custom exception class along with handler
 require PATH."htdocs/include/exception.php";
 // Custom Functions (Misc)
 require PATH."htdocs/include/functions.php";

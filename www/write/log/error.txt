@@ -1,0 +1,29 @@
+05/09/10 13:44:47 An exception occurred in H:\Apps\wamp\www\htdocs\include\MyPDO.php on line 8
+  Message: SQLSTATE[28000] [1045] Access denied for user 'ecommerce'@'localhost' (using password: YES)
+    Trace: #0 H:\Apps\wamp\www\htdocs\include\MyPDO.php(8): PDO->__construct('mysql:host=loca...', 'ecommerce', 'PKMy4teLqyrhu8t...')
+           #1 H:\Apps\wamp\www\htdocs\include\global.php(25): MyPDO->__construct()
+           #2 H:\Apps\wamp\www\htdocs\index.php(2): require('H:\Apps\wamp\ww...')
+           #3 {main}
+05/09/10 13:48:03 An exception occurred in H:\Apps\wamp\www\htdocs\include\global.php on line 30
+  Message: Just a test error
+    Trace: #0 [internal function]: exception_error_handler(256, 'Just a test err...', 'H:\Apps\wamp\ww...', 30, Array)
+           #1 H:\Apps\wamp\www\htdocs\include\global.php(30): trigger_error('Just a test err...', 256)
+           #2 H:\Apps\wamp\www\htdocs\index.php(2): require('H:\Apps\wamp\ww...')
+           #3 {main}
+05/09/10 14:01:54 An exception occurred in H:\Apps\wamp\www\htdocs\include\Image.php on line 26
+  Message: Undefined index: channels
+    Trace: #0 H:\Apps\wamp\www\htdocs\include\Image.php(26): exception_error_handler(8, 'Undefined index...', 'H:\Apps\wamp\ww...', 26, Array)
+           #1 H:\Apps\wamp\www\htdocs\include\SmartyPlugins\function.image.php(4): Image->__construct('awesome.png', 'Plan 1')
+           #2 H:\Apps\wamp\www\write\templates_c\0cdc5bc4ccb5029f8a06b46bdf4f09f3978af5f2.file.function.planslist.tpl.php(47): smarty_function_image(Array, Object(Smarty), Object(Smarty_Internal_Template))
+           #3 H:\Apps\wamp\www\htdocs\include\Smarty\sysplugins\smarty_internal_template.php(408): include('H:\Apps\wamp\ww...')
+           #4 H:\Apps\wamp\www\htdocs\include\Smarty\sysplugins\smarty_internal_template.php(525): Smarty_Internal_Template->renderTemplate()
+           #5 H:\Apps\wamp\www\htdocs\include\Smarty\Smarty.class.php(331): Smarty_Internal_Template->getRenderedTemplate()
+           #6 H:\Apps\wamp\www\htdocs\include\Smarty\Smarty.class.php(373): Smarty->fetch('function.plansl...', NULL, NULL, NULL, true)
+           #7 H:\Apps\wamp\www\htdocs\include\SmartyPlugins\function.planslist.php(13): Smarty->display('function.plansl...')
+           #8 H:\Apps\wamp\www\write\templates_c\b3521ac237bfcdaa04fae9e05c82379092963edc.file.index.tpl.php(23): smarty_function_planslist(Array, Object(Smarty), Object(Smarty_Internal_Template))
+           #9 H:\Apps\wamp\www\htdocs\include\Smarty\sysplugins\smarty_internal_template.php(408): include('H:\Apps\wamp\ww...')
+           #10 H:\Apps\wamp\www\htdocs\include\Smarty\sysplugins\smarty_internal_template.php(525): Smarty_Internal_Template->renderTemplate()
+           #11 H:\Apps\wamp\www\htdocs\include\Smarty\Smarty.class.php(331): Smarty_Internal_Template->getRenderedTemplate()
+           #12 H:\Apps\wamp\www\htdocs\include\Smarty\Smarty.class.php(373): Smarty->fetch('index.tpl', NULL, NULL, NULL, true)
+           #13 H:\Apps\wamp\www\htdocs\index.php(3): Smarty->display('index.tpl')
+           #14 {main}

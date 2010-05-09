@@ -1,24 +1,23 @@
 <?
 class MyPDO extends PDO {
     public function __construct() {
-		// Path to the config file
-		$file = PATH."config/config.ini";
-        if (!$settings = parse_ini_file($file, TRUE)) throw new exception('Unable to open ' . $file . '.');
+        $dns = $GLOBALS['config']['database']['driver'].':host='.$GLOBALS['config']['database']['host'].
+        ((!empty($GLOBALS['config']['database']['port'])) ? (';port=' . $GLOBALS['config']['database']['port']) : '').
+        ';dbname=' . $GLOBALS['config']['database']['schema'];
         
-        $dns = $settings['database']['driver'] .
-        ':host=' . $settings['database']['host'] .
-        ((!empty($settings['database']['port'])) ? (';port=' . $settings['database']['port']) : '') .
-        ';dbname=' . $settings['database']['schema'];
-        
-        return parent::__construct($dns, $settings['database']['username'], $settings['database']['password']);
+        return parent::__construct($dns, $GLOBALS['config']['database']['username'], $GLOBALS['config']['database']['password']);
     }
 	
-	public function prepare($sql) {
-		$hash = hash('sha1', $sql);
-		if (isset($GLOBALS[$hash])) {
-			return $GLOBALS[$hash];
+	public function prepare($sql, $driveropts = FALSE) {
+		$hash = hash('sha1', $sql.$driveropts);
+		if (isset($GLOBALS['stmt'][$hash])) {
+			return $GLOBALS['stmt'][$hash];
 		} else {
-			return $GLOBALS[$hash] = parent::prepare($sql);
+			if ($driveropts) {
+				return $GLOBALS['stmt'][$hash] = parent::prepare($sql, $driveropts);
+			} else {
+				return $GLOBALS['stmt'][$hash] = parent::prepare($sql);
+			}
 		}
 	}
 }
