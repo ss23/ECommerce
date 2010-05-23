@@ -42,7 +42,7 @@ function exception_error_handler($errno, $errstr, $errfile, $errline) {
     throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
 }
 if (DEBUG) {
-	set_error_handler("exception_error_handler", E_ALL); // We're debugging, might as well catch them all
+	set_error_handler("exception_error_handler", -1); // We're debugging, might as well catch them all
 } else {
 	set_error_handler("exception_error_handler", E_USER_ERROR | E_ERROR); // Only catch the fatal errors like this (remember, if we catch an error, we can't recover)
 }
@@ -69,7 +69,7 @@ function HandleExceptions($e) {
 		echo $e;
 		// ob_clean(); // ob_clean() is an option, but I know I like to spam thousands of "echo "RAWR" when debugging, or print_r's etc.
 	} else {
-		// TODO: I really think this is the wrong way of doing this, but you can't reply on a template, becaues it could be smarty that's causing the error in the first place... I need to do more research on error handling for front end stuff...
+		// TODO: I really think this is the wrong way of doing this, but you can't rely on a template, becaues it could be smarty that's causing the error in the first place... I need to do more research on error handling for front end stuff...
 		ob_clean(); // So we can send the proper "OHSHIT ERROR" stuff
 		echo "Sorry, an error happened, try again later";
 		
