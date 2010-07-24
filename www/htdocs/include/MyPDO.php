@@ -4,7 +4,7 @@ class MyPDO extends PDO {
         $dns = $GLOBALS['config']['database']['driver'].':host='.$GLOBALS['config']['database']['host'].
         ((!empty($GLOBALS['config']['database']['port'])) ? (';port=' . $GLOBALS['config']['database']['port']) : '').
         ';dbname=' . $GLOBALS['config']['database']['schema'];
-        
+       
         return parent::__construct($dns, $GLOBALS['config']['database']['username'], $GLOBALS['config']['database']['password']);
     }
 	

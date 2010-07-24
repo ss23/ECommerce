@@ -76,7 +76,7 @@ function HandleExceptions($e) {
 	}
 }
 
-set_exception_handler('HandleExceptions');
+//set_exception_handler('HandleExceptions');
 
 
 ?>
