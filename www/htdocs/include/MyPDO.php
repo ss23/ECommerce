@@ -10,13 +10,13 @@ class MyPDO extends PDO {
 	
 	public function prepare($sql, $driveropts = FALSE) {
 		$hash = hash('sha1', $sql.$driveropts);
-		if (isset($GLOBALS['stmt'][$hash])) {
-			return $GLOBALS['stmt'][$hash];
+		if (isset($GLOBALS['cached_stmt'][$hash])) {
+			return $GLOBALS['cached_stmt'][$hash];
 		} else {
 			if ($driveropts) {
-				return $GLOBALS['stmt'][$hash] = parent::prepare($sql, $driveropts);
+				return $GLOBALS['cached_stmt'][$hash] = parent::prepare($sql, $driveropts);
 			} else {
-				return $GLOBALS['stmt'][$hash] = parent::prepare($sql);
+				return $GLOBALS['cached_stmt'][$hash] = parent::prepare($sql);
 			}
 		}
 	}

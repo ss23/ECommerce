@@ -24,7 +24,25 @@ $smarty->plugins_dir[] = PATH."htdocs/include/SmartyPlugins";
 require PATH."htdocs/include/MyPDO.php";
 $GLOBALS['pdo'] = new MyPDO();
 
+// The library (lib) function
+function lib($Library) {
+	if (file_exists(PATH."htdocs/include/$Library.php")) {
+		require_once PATH."htdocs/include/$Library.php";
+		return;
+	}
+	if (file_exists(PATH."htdocs/include/functions/$Library.php")) {
+		require_once PATH."htdocs/include/functions/$Library.php";
+		return;
+	}
+	throw new Exception('Could not load library '.$Library);
+}
+
 // Custom Classes
-require PATH."htdocs/include/File.php";
-require PATH."htdocs/include/Image.php";
+lib('File');
+lib('Image');
+lib('User');
+
+// User Authentication and sessions
+require PATH."htdocs/include/Sessions.php";
+
 ?>
