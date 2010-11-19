@@ -10,6 +10,6 @@ function smarty_function_planslist($params, &$smarty) {
 	settype($offset, 'int');
 	$stmt->execute();
 	$smarty->assign('plans', $stmt->fetchAll(PDO::FETCH_ASSOC));
-	$smarty->display('function.planslist.tpl');
+	$smarty->display('planslist.tpl');
 }
 ?>

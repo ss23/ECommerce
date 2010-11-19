@@ -12,4 +12,6 @@
 <body>
 {if $user}
 <h4>You are logged in as {$user->username} <a href="/logout.php">Logout</a></h4>
+{else}
+<h4><a href="/login.php">Login</a> or <a href="/register.php">Register</a></h4>
 {/if}
